@@ -1,0 +1,20 @@
+@use '../../styles/scss/' as *;
+
+.navStyle {
+  @include mobile {
+    display: none;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  // Disable text selection
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  
+}

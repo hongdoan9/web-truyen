@@ -1,0 +1,425 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import '~antd/dist/antd.css';
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px 15px !important;
+    background-color: #F5F6FA;
+}
+
+html,
+body {
+    overflow: hidden;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    transform-origin: top left;
+    width: 1600px !important;
+}
+
+#root {
+    height: 100%;
+    transition: all .1s;
+}
+
+.modal-open #root {
+    filter: blur(2px);
+}
+
+.modal-content {
+    border: none !important;
+}
+
+.modal-open .modal-backdrop {
+    /* background-color: #b5b5b5; */
+    width: 100%;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.5);
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* check box */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-30%);
+    height: 40px;
+    width: 40px;
+    background-color: #eee;
+}
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* readio button */
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    /* line-height: 20px; */
+    display: inline-block;
+    color: #666;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #007BFF;
+    position: absolute;
+    top: 4px;
+    left: -4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+table.table td,
+table.table th {
+    padding: 0;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.react-datepicker {
+    border-radius: 8px !important;
+    border: 1px solid #aaa !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    font-family: Roboto, Arial, serif !important;
+}
+
+.react-datepicker__header {
+    padding: 0 !important;
+    background-color: #fff !important;
+    border: none !important;
+}
+
+.react-datepicker__month {
+    margin: 14px !important;
+}
+
+.react-datepicker__day {
+    width: 30px !important;
+    height: 30px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-bottom: 5px !important;
+}
+
+.react-datepicker__day-name {
+    width: 30px !important;
+    height: 30px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px !important;
+}
+
+.react-datepicker__day--selected {
+    background-color: #AED5FF !important;
+    font-weight: bold !important;
+
+}
+
+/* panage css */
+ul.ant-pagination.ant-table-pagination.ant-table-pagination-right {
+    display: none !important;
+}
+
+/* set display none button flower */
+button[aria-label='Open React Query Devtools'] {
+    display: none !important;
+}
+
+/* modal create oder */
+.modal-dialog.modal-createOder.modal-dialog-centered {
+    width: 87% !important;
+    height: 87% !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.modal-dialog.modal-createOder .modal-content {
+    height: 100%;
+}
+
+/* map */
+#map {
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.info.leaflet-control {
+    text-align: center;
+    /* display: none; */
+}
+
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
+
+.my-div-icon {
+    background: transparent;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    z-index: 1000;
+    position: relative;
+}
+
+.marker-text {
+    text-align: center;
+    transform: rotate(-49deg);
+    padding: 0 3px;
+    /* border-radius: 4px; */
+    white-space: nowrap;
+    width: fit-content;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    position: absolute;
+    top: -15px;
+    left: -22px;
+    width: 45px;
+    white-space: inherit;
+}
+
+.marker-text.active {}
+
+.custom-tooltip {
+    background-color: transparent;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.custom-tooltip::before {
+    width: 0 !important;
+    height: 0 !important;
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+#container .WrapperBtn {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    display: flex;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+}
+
+#container .my-location {
+    position: absolute;
+    z-index: 999;
+    top: 150px;
+    left: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#container .WrapperBtn .btn {
+    width: 140px;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 50px;
+    /* background-color: red; */
+    color: #777;
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px #fff solid;
+    transition: all 0.3s ease;
+}
+
+#container .WrapperBtn .btn.active {
+    background-color: #6AB100;
+    color: #fff;
+}
+
+.leaflet-map-pane canvas {
+    z-index: 1000 !important;
+}
+
+/* .iconCay {
+    transform: rotate(90deg) !important;
+    background-color: #007BFF;
+    width: 20px;
+    height: 20px;
+} */
+
+@media (max-width: 600px) {
+
+    .info.leaflet-control {
+        display: none;
+    }
+
+    /* .leaflet-top {
+        top: 60px !important;
+    } */
+    #container .WrapperBtn .btn {
+        width: unset !important;
+        border-radius: 0;
+    }
+
+    .info.leaflet-control {
+        width: 90px;
+        text-align: center;
+    }
+
+    #container .my-location {
+        top: 85px !important;
+    }
+
+    #container .WrapperBtn {
+        margin-top: 10px;
+        border-radius: 0 !important;
+    }
+
+    body {
+        width: unset !important;
+    }
+
+    #map {
+        height: 100% !important;
+    }
+}
+
+div#container {
+    height: 100%;
+}
